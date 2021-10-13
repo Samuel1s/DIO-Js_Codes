@@ -1,0 +1,24 @@
+{
+  "name": "dio-js",
+  "version": "1.0.0",
+  "description": "A course to learn advanced techniques in JS ES6",
+  "main": "destructuring.js",
+  "dependencies": {
+    "node-fetch": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Samuel1s/DIO-Js_Codes.git"
+  },
+  "author": "Samuel Santos <samuelfds286@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Samuel1s/DIO-Js_Codes/issues"
+  },
+  "homepage": "https://github.com/Samuel1s/DIO-Js_Codes#readme",
+  "type": "module"
+}
