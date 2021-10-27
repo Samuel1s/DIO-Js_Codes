@@ -1,6 +1,7 @@
 import fetch from 'node-fetch'
 
-const API_ENDPOINT = 'https://swapi.dev/api' 
+let CEP = 30660298
+const API_ENDPOINT = `https://viacep.com.br/ws/${CEP}/json/`
 
 // Normal promise ES6.
 const asyncTimer = () => new Promise((resolve, reject) => {
@@ -11,26 +12,25 @@ const asyncTimer = () => new Promise((resolve, reject) => {
 })
 
 // Using fetch to load data using GET by default.
-const loadAPI = url => {
-    fetch(url).then(response => {
-        if(response.status === 200){
-            return response.json()
-        } else {
-            throw new Error('Erro na requisição')
-        }
-
+const my_request_es6 = () => {
+    fetch(API_ENDPOINT).then(response => {
+        return response.json()   // Return a promise too.
+    }).then(json => {
+        console.log(json)
+        return json
     }).catch(err => {
         console.log('Error' + err)
     })
 }
 
 // Using async/await ES7.
-const simpleFunction = async () => {
-    const data_1 = await asyncTimer()
-    console.log(data_1)
-    const data_2 = await loadAPI(`${API_ENDPOINT}/films`)
-    return data_2
+const my_request_es7 = async() => {
+    const response = await fetch(API_ENDPOINT)
+    const json = await response.json() // Return a promise too.
+    return json
 }
 
 // Call 
-simpleFunction().then(data => {console.log(data)}).catch(err => {console.log(err)})
+my_request_es6()
+my_request_es7().then(data => console.log(data))
+
